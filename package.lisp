@@ -2,6 +2,6 @@
 
 (defpackage #:html-table
   (:use #:cl)
-  (:export list-list-html-table)
+  (:export list-list-html-table list-html)
   )
 
