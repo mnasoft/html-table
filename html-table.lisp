@@ -18,23 +18,24 @@
      (format out "<td>~A</td>" a))))
 
 (defun list-list-html-table(l f_name)
-  "(list-list-html-table '((1 2 3)(2 3 4) (5 6 7)))"
-  (with-open-file
-      (out f_name
-	   :direction :output :if-exists :supersede)
-    (format out "<html>
+  "
+(list-list-html-table '((1 2 3)(2 3 4) (5 6 7)) #p\"D:/home/_namatv/tmp/123.html\") "
+  (with-open-file (out f_name :direction :output :if-exists :supersede)
+    (list-html l out)))
+
+(defun list-html (l &optional (out t))
+  (format out "<html>
 <head>
 <META HTTP-EQUIV=\"CONTENT-TYPE\" CONTENT=\"text/html; charset=1251\">
 </head>")
-    (format out "<table>~%")
-    (mapcar
-     #'(lambda(l1)
-	 (format out "<tr>")
-	 (mapcar
-	  #'(lambda(el)
-;;;;	    (format out "<td>~A</td>" el)
-	      (type_tr el out)
-	      ) l1)
-	 (format out "</tr>~%")
-	 )l)
-    (format out "</table>~%</html>~%")))
+  (format out "<table>~%")
+  (mapcar
+   #'(lambda(l1)
+       (format out "<tr>")
+       (mapcar #'(lambda(el) (type_tr el out)) l1)
+       (format out "</tr>~%"))
+   l)
+  (format out "</table>~%</html>~%"))
+
+;;(list-html '((1 2 3)(2 3 4) (5 6 7)))
+;;(list-list-html-table '((1 2 3)(2 3 4) (5 6 7)) #p"D:/home/_namatv/tmp/123.html")
