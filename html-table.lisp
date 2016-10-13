@@ -23,11 +23,11 @@
   (with-open-file (out f_name :direction :output :if-exists :supersede)
     (list-html l out)))
 
-(defun list-html (l &optional (out t))
+(defun list-html (l &optional (out t) &key (charset "utf8"))
   (format out "<html>
 <head>
-<META HTTP-EQUIV=\"CONTENT-TYPE\" CONTENT=\"text/html; charset=1251\">
-</head>")
+<META HTTP-EQUIV=\"CONTENT-TYPE\" CONTENT=\"text/html; charset=~A\">
+</head>" charset)
   (format out "<table>~%")
   (mapcar
    #'(lambda(l1)
