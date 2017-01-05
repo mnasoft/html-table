@@ -26,7 +26,7 @@
 (defun list-html (l &optional (out t) &key (charset "utf8"))
   (format out "<html>
 <head>
-<META HTTP-EQUIV=\"CONTENT-TYPE\" CONTENT=\"text/html; charset=~A\">
+<meta charset=~A\">
 </head>" charset)
   (format out "<table>~%")
   (mapcar
