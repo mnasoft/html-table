@@ -21,13 +21,14 @@
   "
 (list-list-html-table '((1 2 3)(2 3 4) (5 6 7)) #p\"D:/home/_namatv/tmp/123.html\") "
   (with-open-file (out f_name :direction :output :if-exists :supersede)
-    (list-html l out)))
+    (list-html l :out out)))
 
-(defun list-html (l &optional (out t) &key (charset "utf8"))
+(defun list-html (l &key (out t) (charset "utf8") (header nil))
   (format out "<html>
 <head>
 <meta charset=~A\">
-</head>" charset)
+</head>~%" charset)
+  (when header (format out "<h1>~A</h1>~%" header))
   (format out "<table>~%")
   (mapcar
    #'(lambda(l1)
