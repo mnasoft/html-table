@@ -26,7 +26,7 @@
 (defun list-html (l &key (out t) (charset "utf8") (header nil))
   (format out "<html>
 <head>
-<meta charset=~A\">
+<meta charset=\"~A\">
 </head>~%" charset)
   (when header (format out "<h1>~A</h1>~%" header))
   (format out "<table>~%")
