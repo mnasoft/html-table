@@ -6,6 +6,7 @@
 
 (defun type_tr(a &optional (out nil))
   (cond
+    ((and (numberp a ) (= a 0))      (format out "<td>~4,2F</td>" a))
     ((and (numberp a ) (< a 0.01))   (format out "<td>~6,3E</td>" a))
     ((and (numberp a ) (< a 0.1))    (format out "<td>~7,5F</td>" a))
     ((and (numberp a ) (< a 1))      (format out "<td>~7,4F</td>" a))
@@ -23,7 +24,7 @@
   (with-open-file (out f_name :direction :output :if-exists :supersede)
     (list-html l :out out)))
 
-(defun list-html (l &key (out t) (charset "utf8") (header nil))
+(defun list-html (l &key (out t) (charset "utf-8") (header nil))
   (format out "<html>
 <head>
 <meta charset=\"~A\">
@@ -40,3 +41,5 @@
 
 ;;(list-html '((1 2 3)(2 3 4) (5 6 7)))
 ;;(list-list-html-table '((1 2 3)(2 3 4) (5 6 7)) #p"D:/home/_namatv/tmp/123.html")
+
+;;;; (type_tr 0.0)
