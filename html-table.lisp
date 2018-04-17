@@ -74,7 +74,7 @@
    l)
   (format out "</table>~%</html>~%"))
 
-;;(list-html '((1 2 3)(2 3 4) (5 6 7)))
+;;(list-html '((1 2 3)(2 3 4) (5 6 0.0000000007d0)))
 ;;(list-list-html-table '((1 2 3)(2 3 4) (5 6 7)) #p"D:/home/_namatv/tmp/123.html")
 
 ;;;; (type_tr 0.0)
