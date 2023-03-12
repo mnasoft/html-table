@@ -1,6 +1,6 @@
 ;;;; package.lisp
 
-(defpackage #:html-table
+(defpackage :html-table
   (:use #:cl)
   (:export list-list-html-table list-html round-val)
   )

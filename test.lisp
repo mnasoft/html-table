@@ -1,6 +1,6 @@
 ;;;; html-table.lisp
 
-(in-package #:html-table)
+(in-package :html-table)
 
 ;;; "html-table" goes here. Hacks and glory await!
 
